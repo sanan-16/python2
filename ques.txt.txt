@@ -1,0 +1,49 @@
+Q3:
+ANS:The time complexity of enqueue and dequeue operations in a basic queue depends on the implementation of the queue. If the queue is implemented using an array, the time complexity of both operations is O(1) ¹³. If the queue is implemented using a linked list, the time complexity of both operations is O(1) as well.
+
+To optimize these operations for specific use cases, you can use a circular queue. A circular queue is a variation of a queue data structure in which the last element is connected to the first element to make a circle. This makes it possible to use the spaces that are left empty after a dequeue operation. In a circular queue, the enqueue and dequeue operations can be performed in O(1) time complexity. 
+
+Another way to optimize these operations is to use a priority queue. A priority queue is a type of queue in which each element is assigned a priority and is dequeued based on its priority. The elements with higher priority are dequeued first. The time complexity of enqueue and dequeue operations in a priority queue depends on the implementation of the priority queue. If the priority queue is implemented using a heap, the time complexity of both operations is O(log n) . 
+
+In conclusion, the time complexity of enqueue and dequeue operations in a basic queue is O(1) for both array and linked list implementations. To optimize these operations for specific use cases, you can use a circular queue or a priority queue.
+
+Q4:
+ANS:You can use two stacks to implement a queue. Let's call the two stacks stack1 and stack2. Here are the steps for enqueue and dequeue operations:
+
+Enqueue Operation:
+1. Push the new element onto stack1.
+
+Dequeue Operation:
+1. If both stack1 and stack2 are empty, return an error message.
+2. If stack2 is empty, pop all elements from stack1 and push them onto stack2.
+3. Pop the top element from stack2 and return it.
+
+Here's how the enqueue and dequeue operations work in this scenario:
+
+1. Suppose we want to enqueue the element 5 into the queue. We push 5 onto stack1.
+2. Suppose we want to enqueue the element 7 into the queue. We push 7 onto stack1.
+3. Suppose we want to dequeue an element from the queue. We check if stack2 is empty. Since it is empty, we pop all elements from stack1 and push them onto stack2. Now stack2 contains the elements in reverse order, so the top element of stack2 is the first element that was pushed onto stack1, which is 5. We pop 5 from stack2 and return it.
+4. Suppose we want to enqueue the element 9 into the queue. We push 9 onto stack1.
+5. Suppose we want to dequeue an element from the queue. We check if stack2 is empty. Since it is not empty, we pop the top element from stack2 and return it. The top element of stack2 is 7, which was the second element that was pushed onto stack1.
+
+Using two stacks to implement a queue can be useful in certain situations, such as when you have limited memory available or when you need to implement a queue using a stack data structure.
+
+Q2: 
+ANS:A queue is an abstract data type that follows the FIFO (First-In, First-Out) principle, meaning that the first element that is added to the queue is the first one to be removed. A queue can be implemented using either an array or a linked list, but each option has its own advantages and disadvantages.
+
+An array is a data structure that stores elements in contiguous memory locations, resulting in easily calculable addresses for the elements stored and this allows faster access to an element at a specific index. However, an array has a fixed size, which means that it can be either too large or too small for the queue. If the array is too large, it wastes memory space. If the array is too small, it cannot accommodate more elements and needs to be resized, which is a costly operation. Moreover, an array-based queue requires shifting elements when an element is dequeued, which can also be inefficient.
+
+A linked list is a data structure that stores elements in non-contiguous memory locations, linked by pointers. Each element has a reference to the next element in the queue. A linked list does not have a fixed size, which means that it can grow or shrink as needed. A linked list-based queue does not require shifting elements when an element is dequeued, which can be more efficient. However, a linked list requires extra space for storing the pointers, which can increase the memory usage. Moreover, a linked list-based queue does not allow random access to the elements, which can be a limitation in some scenarios.
+
+Therefore, the choice of implementation depends on the trade-offs between time and space complexity, as well as the specific requirements of the application. In general, some scenarios where you would choose a linked list implementation over an array implementation for a queue are:
+
+- When the size of the queue is not known in advance or varies frequently.
+- When the number of enqueue and dequeue operations is high and the performance of these operations is critical.
+- When random access to the elements is not needed.
+
+Some scenarios where you would choose an array implementation over a linked list implementation for a queue are:
+
+- When the size of the queue is fixed or does not change much.
+- When the number of enqueue and dequeue operations is low or the performance of these operations is not critical.
+- When random access to the elements is needed.
+
